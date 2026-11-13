@@ -8,31 +8,40 @@ player = {
     "name": player_name,
     "energy": 5,
     "location": "Beach",
-    "inventory": []
+    "inventory": [] 
 }
 
-
+print("Welcom to Mtstery island,", player["name"])
 print("You are standing on the Beach.")
-print("You see a rope on the ground.")
+print("You see a rope on the ground.") 
 
-print("\n=====   BEACH =====")
-print("1. Collect rope")    
-print("3. Leave the Beach")
+playing = True
 
-choice = input("Choose an option (1-3): ")
+while playing:
+    print("\n=====   BEACH =====")
+    print("1. Collect rope")
+    print("2. Check inventory")    
+    print("3. Leave the Beach")
 
-if choice == "1": 
-    player["inventory"].append("rope")
-    print("You collected a rope!")
+    choice = input("Choose an option (1-3): ")
 
-elif choice == "2":
-    print("Your inventory:", player["inventory"])
+    if choice == "1": 
+        if "rope" not in player["inventory"]:
+            player["inventory"].append("rope")
+            print("You collected a rope!")
+        else:
+            print("You already collected the rope!")
+
+
+    elif choice == "2":
+        print("Your inventory:", player["inventory"])
     
-elif choice == "3":
-    print("You are leaving the Beach.")
+    elif choice == "3":
+        print("You are leaving the Beach.")
+        playing = False
 
-else:
-    print("Invalid choice. Please choose 1, 2,  or 3.")
+    else:
+        print("Invalid choice. Please choose 1, 2,  or 3.")
 
 
 
